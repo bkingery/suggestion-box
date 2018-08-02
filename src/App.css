@@ -1,0 +1,45 @@
+.App {
+ display: flex;
+ flex-direction: column;
+ height: 100vh;
+}
+
+.SuggestionList {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.Suggestion {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px;
+}
+
+.Suggestion:nth-child(even) {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.Suggestion > .description {
+  flex-grow: 1;
+}
+
+.Suggestion > Button {
+  margin: 0 8px;
+}
+
+.Form {
+  display: flex;
+  align-items: baseline;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.Form > .TextField {
+  flex-grow: 1;
+  margin: 0 8px;
+}
+
+.Form > Button {
+  margin-right: 16px;
+}
