@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import FlipMove from 'react-flip-move';
 import Suggestion from './Suggestion';
 
-class SuggestionList extends Component {
-  render() {
+export default function SuggestionList ({suggestions, onPlusOne}) {
     return (
-      <div className="SuggestionList">
-        {this.props.suggestions.map((s, i) => <Suggestion key={i} {...s} />)}
-      </div>
+      <FlipMove className="SuggestionList">
+        {suggestions.map((s, i) => <Suggestion key={s.id} {...s} onPlusOne={() => onPlusOne(i)}/>)}
+      </FlipMove>
     );
-  }
 }
-
-export default SuggestionList;

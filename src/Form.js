@@ -22,6 +22,7 @@ class Form extends Component {
           value={this.state.input}
           onChange={(event) => this.setState({ input: event.target.value })}
           label="Type a suggestion"
+          multiline
         />
         <Button type="submit" variant="contained" color="primary">Submit</Button>
       </form>

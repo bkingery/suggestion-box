@@ -14,10 +14,7 @@
   align-items: center;
   min-height: 42px;
   padding: 8px;
-}
-
-.Suggestion:nth-child(even) {
-  background-color: rgba(0,0,0,0.05);
+  margin: 16px;
 }
 
 .Suggestion > .description {
@@ -30,9 +27,10 @@
 
 .Form {
   display: flex;
-  align-items: baseline;
-  height: 80px;
+  align-items: center;
+  min-height: 80px;
   flex-shrink: 0;
+  border-top: 1px solid rgba(0,0,0,0.2);
 }
 
 .Form > .TextField {

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 class Suggestion extends Component {
   render() {
     return (
-      <div className="Suggestion">
+      <Paper className="Suggestion">
         <div className="description">{this.props.message}</div>
-        <Button variant="outlined">+1</Button>
+        <Button variant="outlined" onClick={this.props.onPlusOne}>+1</Button>
         <div className="total">{this.props.totalPlusOne}</div>
-      </div>
+      </Paper>
     );
   }
 }
