@@ -1,5 +1,9 @@
 'use strict';
 
+const { Proxy } = require('@domoinc/ryuu-proxy');
+const manifest = require('../public/manifest.json');
+const domoProxy = new Proxy(manifest);
+
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
@@ -90,6 +94,8 @@ module.exports = function(proxy, allowedHost) {
       // it used the same host and port.
       // https://github.com/facebookincubator/create-react-app/issues/2272#issuecomment-302832432
       app.use(noopServiceWorkerMiddleware());
+
+      app.use(domoProxy.express());
     },
   };
 };

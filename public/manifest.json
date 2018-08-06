@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Suggestion Box",
+  "version": "0.0.1",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,5 +11,28 @@
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "fullpage": true,
+  "size": {
+    "width": 2,
+    "height": 2
+  },
+  "mapping": {
+    "alias": "suggestions",
+    "dataSetId": "fd0e6441-d895-44e6-a7c0-27d6dd82abcc",
+    "fields": [
+      {
+        "alias": "id",
+        "columnName": "id"
+      },
+      {
+        "alias": "message",
+        "columnName": "message"
+      },
+      {
+        "alias": "totalPlusOne",
+        "columnName": "totalPlusOne"
+      }
+    ]
+  }
 }
