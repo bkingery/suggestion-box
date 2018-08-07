@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
 import SuggestionList from './SuggestionList';
 import Form from './Form';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import domo from 'ryuu.js';
+import './App.css';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#fc8f13' }
+  }
+});
 
 class App extends Component {
   state = { suggestions: [] }
@@ -71,11 +78,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SuggestionList
-          suggestions={this.state.suggestions}
-          onPlusOne={this.onPlusOne}
-        />
-        <Form onSubmit={this.addNewSuggestion} />
+        <MuiThemeProvider theme={theme}>
+          <SuggestionList
+            suggestions={this.state.suggestions}
+            onPlusOne={this.onPlusOne}
+          />
+          <Form onSubmit={this.addNewSuggestion} />
+        </MuiThemeProvider>
       </div>
     );
   }
