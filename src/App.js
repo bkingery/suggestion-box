@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SuggestionList from './SuggestionList';
 import Form from './Form';
+import domo from 'ryuu.js';
 
 class App extends Component {
   state = { suggestions: [] }
@@ -14,15 +15,39 @@ class App extends Component {
     });
   }
 
+  postNewSuggestion(suggestion) {
+    return new Promise((resolve, reject) => {
+      const req = new XMLHttpRequest();
+      req.open('POST', 'data/v1/suggestions/dataversions?append=latest');
+      req.setRequestHeader('Accept', 'application/json');
+      req.setRequestHeader('Content-Type', 'application/json');
+      req.onload = () => { resolve(JSON.parse(req.response)) }
+      req.onerror = () => { reject(Error("Network Error")); };
+      req.send(suggestion);
+    })
+  }
+
   addNewSuggestion = (message) => {
     const newSuggestion = {
       id: this.uuidv4(),
       message: message,
       totalPlusOne: 0,
+      done: false
     };
-    this.setState(prevState => ({
-      suggestions: prevState.suggestions.concat(newSuggestion)
-    }));
+    // fetch('data/v1/suggestions/dataversions?append=latest', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: newSuggestion
+    // })
+    this.postNewSuggestion(newSuggestion)
+    .then(resp => {
+      this.setState(prevState => ({
+        suggestions: prevState.suggestions.concat(newSuggestion)
+      }));
+    });
   }
 
   onPlusOne = (index) => {
@@ -35,10 +60,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/v1/suggestions')
-      .then(resp => resp.json())
-      .then(json => {
-        console.log(json);
+    domo.get('/data/v1/suggestions')
+      .then(data => {
+        this.setState({
+          suggestions: data
+        });
       });
   }
 

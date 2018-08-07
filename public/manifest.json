@@ -17,22 +17,29 @@
     "width": 2,
     "height": 2
   },
-  "mapping": {
-    "alias": "suggestions",
-    "dataSetId": "fd0e6441-d895-44e6-a7c0-27d6dd82abcc",
-    "fields": [
-      {
-        "alias": "id",
-        "columnName": "id"
-      },
-      {
-        "alias": "message",
-        "columnName": "message"
-      },
-      {
-        "alias": "totalPlusOne",
-        "columnName": "totalPlusOne"
-      }
-    ]
-  }
+  "mapping": [
+    {
+      "alias": "suggestions",
+      "dataSetId": "fd0e6441-d895-44e6-a7c0-27d6dd82abcc",
+      "fields": [
+        {
+          "alias": "id",
+          "columnName": "id"
+        },
+        {
+          "alias": "message",
+          "columnName": "message"
+        },
+        {
+          "alias": "totalPlusOne",
+          "columnName": "totalPlusOne"
+        },
+        {
+          "alias": "done",
+          "columnName": "done"
+        }
+      ]
+    }
+  ],
+  "id": "681398d6-44bf-4c92-9af4-52b156bd23a7"
 }
