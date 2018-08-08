@@ -83,6 +83,8 @@ class App extends Component {
         suggestions: suggestions
       });
     });
+
+    domo.onDataUpdate(() => {}); // noop so the app doesn't refresh every we append to the dataset
   }
 
   render() {
