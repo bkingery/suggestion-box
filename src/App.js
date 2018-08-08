@@ -27,10 +27,10 @@ class App extends Component {
       const req = new XMLHttpRequest();
       req.open('POST', 'data/v1/suggestions/dataversions?append=latest');
       req.setRequestHeader('Accept', 'application/json');
-      req.setRequestHeader('Content-Type', 'application/json');
+      req.setRequestHeader('Content-Type', 'text/csv');
       req.onload = () => { resolve(JSON.parse(req.response)) }
       req.onerror = () => { reject(Error("Network Error")); };
-      req.send(suggestion);
+      req.send(Object.values(suggestion).toString());
     })
   }
 
