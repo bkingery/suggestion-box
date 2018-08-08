@@ -31,12 +31,18 @@
           "columnName": "message"
         },
         {
-          "alias": "totalPlusOne",
-          "columnName": "totalPlusOne"
-        },
-        {
           "alias": "done",
           "columnName": "done"
+        }
+      ]
+    },
+    {
+      "alias": "votes",
+      "dataSetId": "a53cfe89-24e9-4dd7-aefd-e59874441452",
+      "fields": [
+        {
+          "alias": "id",
+          "columnName": "id"
         }
       ]
     }
