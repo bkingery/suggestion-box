@@ -24,7 +24,12 @@ class Form extends Component {
           label="Type a suggestion"
           multiline
         />
-        <Button type="submit" variant="contained" color="primary">Submit</Button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disabled={!this.state.input}
+        >Submit</Button>
       </form>
     );
   }
