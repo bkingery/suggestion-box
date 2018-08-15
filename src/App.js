@@ -76,9 +76,12 @@ class App extends Component {
         memo[d.id]++;
         return memo;
       }, {});
-      const suggestions = data[0].map(d => {
-        return {...d, totalPlusOne: votesById[d.id] || 0};
-      }).sort((a, b) => b.totalPlusOne - a.totalPlusOne)
+      
+      const suggestions = data[0]
+        .filter(d => d.done === 'false')
+        .map(d => ({...d, totalPlusOne: votesById[d.id] || 0}))
+        .sort((a, b) => b.totalPlusOne - a.totalPlusOne);
+
       this.setState({
         suggestions: suggestions
       });
